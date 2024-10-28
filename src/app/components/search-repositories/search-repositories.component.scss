@@ -1,0 +1,34 @@
+/* styles.scss or component styles */
+.container {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    height: 100vh; /* Center vertically on the page */
+  }
+  
+  .form-field {
+    width: 100%;
+    max-width: 400px; /* Set a maximum width for the input field */
+    margin-bottom: 16px; /* Space between the input and button */
+  }
+  
+  /* Change text color inside mat-form-field to black */
+  .mat-form-field-appearance-outline .mat-form-field-label {
+    color: black !important; /* Label text color */
+  }
+  
+  .mat-form-field-appearance-outline .mat-input-element {
+    color: black !important; /* Input text color */
+  }
+  
+  /* Optional: Change placeholder color */
+  .mat-form-field-appearance-outline .mat-input-placeholder {
+    color: rgba(0, 0, 0, 0.54) !important; /* Optional: Change placeholder color to a lighter black */
+  }
+  
+  .find-button {
+    width: 100%;
+    max-width: 200px; /* Set a maximum width for the button */
+  }
+  

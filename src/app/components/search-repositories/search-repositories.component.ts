@@ -14,7 +14,7 @@ import { MatSlideToggleModule } from '@angular/material/slide-toggle';
 @Component({
   selector: 'app-search-repositories',
   standalone: true,
-  imports: [ MatSlideToggleModule,MatButtonModule],
+  imports: [ MatSlideToggleModule,MatButtonModule,MatFormFieldModule, MatInputModule, MatIconModule],
   templateUrl: './search-repositories.component.html',
   styleUrl: './search-repositories.component.scss'
 })
