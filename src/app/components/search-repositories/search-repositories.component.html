@@ -1,11 +1,31 @@
 <div class="container">
-    <p>
-      <mat-form-field appearance="outline" class="form-field">
-        <mat-label>כתוב שם מאגר לחיפוס</mat-label>
-        <input matInput placeholder="Placeholder">
-        <mat-icon matSuffix>sentiment_very_satisfied</mat-icon>
-      </mat-form-field>
-    </p>
-    <button mat-raised-button color="primary" class="find-button" (click)="SearchRepositories()">מצא מאגרים</button>
+  <!-- Search Bar -->
+  <mat-toolbar color="primary">
+    <span>GitHub Repository Search</span>
+    <span class="spacer"></span>
+    <button mat-button color="accent" routerLink="/bookmarks">
+      <mat-icon>bookmark</mat-icon> View Bookmarks
+    </button>
+  </mat-toolbar>
+
+  <!-- Search Input Field -->
+  <div class="search-bar">
+    <mat-form-field appearance="fill" class="full-width">
+      <mat-label>Search Repositories</mat-label>
+      <input
+        matInput
+        placeholder="Enter repository keyword"
+        [(ngModel)]="keyword"
+        (keyup.enter)="SearchRepositories()"
+      />
+      <button
+        mat-icon-button
+        matSuffix
+        color="primary"
+        (click)="SearchRepositories()"
+      >
+        <mat-icon>search</mat-icon>
+      </button>
+    </mat-form-field>
   </div>
-  
+</div>

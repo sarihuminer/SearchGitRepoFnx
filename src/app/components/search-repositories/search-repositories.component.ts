@@ -1,6 +1,6 @@
 import { Component } from '@angular/core';
 import { MatButtonModule } from '@angular/material/button';
-import { MatToolbarModule } from '@angular/material/toolbar';
+import { MatToolbar, MatToolbarModule } from '@angular/material/toolbar';
 import { MatIconModule } from '@angular/material/icon';
 import { MatInputModule } from '@angular/material/input';
 import { MatCardModule } from '@angular/material/card';
@@ -14,9 +14,16 @@ import { MatSlideToggleModule } from '@angular/material/slide-toggle';
 @Component({
   selector: 'app-search-repositories',
   standalone: true,
-  imports: [ MatSlideToggleModule,MatButtonModule,MatFormFieldModule, MatInputModule, MatIconModule],
+  imports: [
+    MatButtonModule,
+    MatToolbarModule,
+    MatIconModule,
+    MatInputModule,
+    MatFormFieldModule,
+    FormsModule, // Add FormsModule here
+  ],
   templateUrl: './search-repositories.component.html',
-  styleUrl: './search-repositories.component.scss'
+  styleUrl: './search-repositories.component.scss',
 })
 export class SearchRepositoriesComponent {
   keyword: string = '';
@@ -25,11 +32,9 @@ export class SearchRepositoriesComponent {
   constructor(private gitHubService: GitHubSearchService) {}
 
   SearchRepositories() {
-    debugger
     if (this.keyword) {
-      this.gitHubService.searchRepositories(this.keyword).subscribe(data => {
-        alert("hi");
-        this.results = data.items; // Assuming GitHub API returns 'items'
+      this.gitHubService.searchRepositories(this.keyword).subscribe((data) => {
+        this.results = data.items; 
       });
     }
   }
