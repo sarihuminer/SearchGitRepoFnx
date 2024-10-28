@@ -1,15 +1,19 @@
 import { Component } from '@angular/core';
 import { MatButtonModule } from '@angular/material/button';
-import { MatToolbar, MatToolbarModule } from '@angular/material/toolbar';
+import { MatToolbarModule } from '@angular/material/toolbar';
 import { MatIconModule } from '@angular/material/icon';
 import { MatInputModule } from '@angular/material/input';
 import { MatCardModule } from '@angular/material/card';
 import { MatFormFieldModule } from '@angular/material/form-field';
-import { MatGridListModule } from '@angular/material/grid-list';
-import { BrowserModule } from '@angular/platform-browser';
+import { MatGridList, MatGridListModule } from '@angular/material/grid-list';
 import { FormsModule } from '@angular/forms';
 import { GitHubSearchService } from '../../services/git-hub-search.service';
 import { MatSlideToggleModule } from '@angular/material/slide-toggle';
+import { CommonModule } from '@angular/common';
+import {
+  BrowserAnimationsModule,
+  NoopAnimationsModule,
+} from '@angular/platform-browser/animations';
 
 @Component({
   selector: 'app-search-repositories',
@@ -20,6 +24,15 @@ import { MatSlideToggleModule } from '@angular/material/slide-toggle';
     MatIconModule,
     MatInputModule,
     MatFormFieldModule,
+    MatToolbarModule,
+    MatFormFieldModule,
+    MatInputModule,
+    MatButtonModule,
+    MatIconModule,
+    MatCardModule,
+    MatGridListModule,
+    MatGridList,
+    CommonModule,
     FormsModule, // Add FormsModule here
   ],
   templateUrl: './search-repositories.component.html',
@@ -34,7 +47,8 @@ export class SearchRepositoriesComponent {
   SearchRepositories() {
     if (this.keyword) {
       this.gitHubService.searchRepositories(this.keyword).subscribe((data) => {
-        this.results = data.items; 
+        this.results = data.items;
+        console.log(this.results);
       });
     }
   }

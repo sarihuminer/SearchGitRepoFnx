@@ -3,6 +3,7 @@
   <mat-toolbar color="primary">
     <span>GitHub Repository Search</span>
     <span class="spacer"></span>
+    <!-- Button to navigate to Bookmarks page -->
     <button mat-button color="accent" routerLink="/bookmarks">
       <mat-icon>bookmark</mat-icon> View Bookmarks
     </button>
@@ -27,5 +28,49 @@
         <mat-icon>search</mat-icon>
       </button>
     </mat-form-field>
+  </div>
+
+  <div class="results">
+    <!-- Results Grid -->
+    <mat-grid-list
+      cols="3"
+      rowHeight="1:1"
+      gutterSize="20px"
+      *ngIf="results && results.length > 0"
+    >
+      <mat-grid-tile *ngFor="let repo of results">
+        <p>{{ repo | json }}</p>
+        <mat-card class="result-card">
+          <!-- Repository Owner Avatar -->
+          <mat-card-header>
+            <div mat-card-avatar class="avatar">
+              <img [src]="repo.owner.avatar_url" alt="Owner Avatar" />
+            </div>
+            <mat-card-title>{{ repo.name }}</mat-card-title>
+            <mat-card-subtitle>{{ repo.owner.login }}</mat-card-subtitle>
+          </mat-card-header>
+
+          <!-- Repository Information -->
+          <mat-card-content>
+            <p>{{ repo.description }}</p>
+          </mat-card-content>
+
+          <!-- Bookmark Button -->
+          <mat-card-actions>
+            <button mat-button color="accent" (click)="bookmark(repo)">
+              <mat-icon>bookmark</mat-icon> Bookmark
+            </button>
+          </mat-card-actions>
+        </mat-card>
+      </mat-grid-tile>
+    </mat-grid-list>
+
+    <!-- No Results Message -->
+    <div *ngIf="results && results.length === 0 && keyword">
+      <p>
+        No repositories found for "{{ keyword }}". Try a different search
+        keyword.
+      </p>
+    </div>
   </div>
 </div>
