@@ -24,9 +24,11 @@ export class SearchRepositoriesComponent {
 
   constructor(private gitHubService: GitHubSearchService) {}
 
-  search() {
+  SearchRepositories() {
+    debugger
     if (this.keyword) {
       this.gitHubService.searchRepositories(this.keyword).subscribe(data => {
+        alert("hi");
         this.results = data.items; // Assuming GitHub API returns 'items'
       });
     }

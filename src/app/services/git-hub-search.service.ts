@@ -5,12 +5,12 @@ import { Observable } from 'rxjs';
   providedIn: 'root'
 })
 export class GitHubSearchService {
-  private apiUrl = 'https://yourdomain.com/api/github';
+  private apiUrl = "https://localhost:44354/api/GitHubRepository";
 
   constructor(private http: HttpClient) {}
 
   searchRepositories(keyword: string): Observable<any> {
-    return this.http.get(`${this.apiUrl}/repositories?keyword=${keyword}`);
+    return this.http.get(`${this.apiUrl}/search?text=${keyword}`);
   }
 
   bookmarkRepository(repository: any): Observable<any> {
