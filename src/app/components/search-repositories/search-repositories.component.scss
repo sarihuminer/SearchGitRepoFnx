@@ -85,3 +85,13 @@ mat-toolbar {
   width: 50px;
   height: 50px;
 }
+
+.info-message {
+  background-color: white; /* White background */
+  color: #b8860b; /* Dark yellow color */
+  padding: 10px; /* Add some padding */
+  border-radius: 5px; /* Slightly rounded corners */
+  box-shadow: 0 2px 5px rgba(0, 0, 0, 0.3); /* Subtle grey shadow */
+  margin-top: 10px; /* Add space above the message */
+  text-align: center; /* Center the text */
+}

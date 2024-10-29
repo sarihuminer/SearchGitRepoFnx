@@ -43,7 +43,7 @@ import { Router } from '@angular/router';
 export class SearchRepositoriesComponent {
   keyword: string = '';
   results: any[] = [];
-text :string ="";
+  text: string = '';
 
   constructor(
     private gitHubService: GitHubSearchService,
@@ -58,14 +58,14 @@ text :string ="";
   }
 
   SearchRepositories() {
+    this.text = 'Loading! please wait.';
     if (this.keyword) {
-      this.text="Loading! please wait.";
       this.gitHubService.searchRepositories(this.keyword).subscribe((data) => {
         this.results = data.items;
-        if(this.results.length==0){
-          this.text="There is no results."
-        }else{
-          this.text="";
+        if (this.results.length == 0) {
+          this.text = 'There are no results.';
+        } else {
+          this.text = '';
         }
         console.log(this.results);
       });

@@ -67,8 +67,6 @@
 
     <!-- No Results Message -->
 
-    <p>
-      {{ text }}
-    </p>
+    <p class="info-message" *ngIf="text">{{ text }}</p>
   </div>
 </div>
