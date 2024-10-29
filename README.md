@@ -1,27 +1,41 @@
-# Angular
+# Angular 17 Standalone Application
 
-This project was generated with [Angular CLI](https://github.com/angular/angular-cli) version 18.2.10.
+## Overview
 
-## Development server
+This is a standalone Angular 17 application that implements user authentication and repository search functionality using Angular Material. The project manages REST calls using JWT (JSON Web Tokens) for secure communication.
 
-Run `ng serve` for a dev server. Navigate to `http://localhost:4200/`. The application will automatically reload if you change any of the source files.
+## Features
 
-## Code scaffolding
+- User authentication
+- Repository search functionality
+- Uses Angular Material for UI components
+- JWT for managing API calls and authentication
 
-Run `ng generate component component-name` to generate a new component. You can also use `ng generate directive|pipe|service|class|guard|interface|enum|module`.
+## Prerequisites
 
-## Build
+Before you begin, ensure you have the following installed:
 
-Run `ng build` to build the project. The build artifacts will be stored in the `dist/` directory.
+- Node.js (v12 or later)
+- Angular CLI (v17)
 
-## Running unit tests
+## Installation
 
-Run `ng test` to execute the unit tests via [Karma](https://karma-runner.github.io).
+1. **Clone the repository:**
 
-## Running end-to-end tests
+   ```bash
+   git clone <repository-url>
+   cd <project-directory>
 
-Run `ng e2e` to execute the end-to-end tests via a platform of your choice. To use this command, you need to first add a package that implements end-to-end testing capabilities.
+2. **Install dependencies:**
+Run the following command to install all required node modules:
 
-## Further help
+   ```bash
+    npm install
 
-To get more help on the Angular CLI use `ng help` or go check out the [Angular CLI Overview and Command Reference](https://angular.dev/tools/cli) page.
+3. **Install Angular Material:**
+If Angular Material is not already included, you can add it by running:
+
+  ```bash
+  Copy code
+  ng add @angular/material
+   
