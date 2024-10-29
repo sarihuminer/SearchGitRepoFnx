@@ -66,11 +66,9 @@
     </mat-grid-list>
 
     <!-- No Results Message -->
-    <div *ngIf="results && results.length === 0 && keyword">
-      <p>
-        No repositories found for "{{ keyword }}". Try a different search
-        keyword.
-      </p>
-    </div>
+
+    <p>
+      {{ text }}
+    </p>
   </div>
 </div>
