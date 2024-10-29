@@ -1,16 +1,24 @@
-import { HttpClient } from '@angular/common/http';
+import { HttpClient, HttpHeaders } from '@angular/common/http';
 import { Injectable } from '@angular/core';
 import { Observable } from 'rxjs';
+import { AuthServiceService } from './auth-service.service';
 @Injectable({
-  providedIn: 'root'
+  providedIn: 'root',
 })
 export class GitHubSearchService {
-  private apiUrl = "https://localhost:44354/api/GitHubRepository";
+  private apiUrl = 'https://localhost:44354/api/GitHubRepository';
 
-  constructor(private http: HttpClient) {}
+  constructor(
+    private http: HttpClient,
+    private authService: AuthServiceService
+  ) {}
 
   searchRepositories(keyword: string): Observable<any> {
-    return this.http.get(`${this.apiUrl}/search?text=${keyword}`);
+    const token = this.authService.getToken();
+    const headers = token
+      ? new HttpHeaders().set('Authorization', `Bearer ${token}`)
+      : undefined;
+    return this.http.get(`${this.apiUrl}/search?text=${keyword}`, { headers });
   }
 
   bookmarkRepository(repository: any): Observable<any> {

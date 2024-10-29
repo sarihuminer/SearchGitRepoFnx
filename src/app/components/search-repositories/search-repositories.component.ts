@@ -14,6 +14,8 @@ import {
   BrowserAnimationsModule,
   NoopAnimationsModule,
 } from '@angular/platform-browser/animations';
+import { AuthServiceService } from '../../services/auth-service.service';
+import { Router } from '@angular/router';
 
 @Component({
   selector: 'app-search-repositories',
@@ -42,7 +44,17 @@ export class SearchRepositoriesComponent {
   keyword: string = '';
   results: any[] = [];
 
-  constructor(private gitHubService: GitHubSearchService) {}
+  constructor(
+    private gitHubService: GitHubSearchService,
+    private authService: AuthServiceService,
+    private router: Router
+  ) {}
+
+  ngOnInit() {
+    if (!this.authService.isLoggedIn()) {
+      this.router.navigate(['/login']);
+    }
+  }
 
   SearchRepositories() {
     if (this.keyword) {
