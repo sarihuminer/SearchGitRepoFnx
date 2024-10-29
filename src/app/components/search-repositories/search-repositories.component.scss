@@ -17,13 +17,6 @@ mat-toolbar {
   flex: 1 1 auto;
 }
 
-/* Search bar styling */
-.search-bar {
-  width: 100%;
-  max-width: 600px;
-  margin-top: 16px;
-}
-
 .full-width {
   width: 100%;
 }
@@ -94,4 +87,17 @@ mat-toolbar {
   box-shadow: 0 2px 5px rgba(0, 0, 0, 0.3); /* Subtle grey shadow */
   margin-top: 10px; /* Add space above the message */
   text-align: center; /* Center the text */
+}
+.search-bar {
+  width: 100%;
+  max-width: 600px;
+  margin-top: 16px;
+
+  mat-form-field div.mat-mdc-text-field-wrapper {
+    background-color: #1f883d !important; /* Green background */
+  }
+
+  mat-form-field input {
+    color: white; /* White text */
+  }
 }

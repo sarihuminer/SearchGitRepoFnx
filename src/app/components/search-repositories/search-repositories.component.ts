@@ -58,17 +58,26 @@ export class SearchRepositoriesComponent {
   }
 
   SearchRepositories() {
+    this.results = [];
     this.text = 'Loading! please wait.';
+
     if (this.keyword) {
-      this.gitHubService.searchRepositories(this.keyword).subscribe((data) => {
-        this.results = data.items;
-        if (this.results.length == 0) {
-          this.text = 'There are no results.';
-        } else {
-          this.text = '';
+      this.gitHubService.searchRepositories(this.keyword).subscribe(
+        (data) => {
+          this.results = data.items;
+          if (this.results.length === 0) {
+            this.text = 'There are no results.';
+          } else {
+            this.text = ''; // Clear message if results are found
+          }
+          console.log(this.results);
+        },
+        (error) => {
+          this.text = 'An error occurred while searching.';
         }
-        console.log(this.results);
-      });
+      );
+    } else {
+      this.text = 'Please enter a search keyword.'; // Prompt if no keyword is entered
     }
   }
 
