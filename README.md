@@ -35,7 +35,46 @@ Run the following command to install all required node modules:
 3. **Install Angular Material:**
 If Angular Material is not already included, you can add it by running:
 
-  ```bash
-  Copy code
-  ng add @angular/material
+   ```bash
+   ng add @angular/material
+
+## Usage
+
+1. **Start the application:**
+
+Run the following command to start the development server:
+
+    ```bash
+    ng serve
+
+The application will be running at http://localhost:4200.
+
+## Login Credentials
+
+To log in, use the following credentials:
+
+- **Username:** `angularApp`
+- **Password:** `<your-password>`
+
+Replace `<your-password>` with any password you choose.
+
+## Token Management
+
+After logging in successfully, a token will be saved in the local storage. This token will be used for managing REST calls with JWT.
+
+## How It Works
+
+- When you enter the username and password, the application sends a request to the backend for authentication.
+- Upon successful authentication, a JWT token is generated and stored in the local storage.
+- All subsequent API calls are authenticated using this token, ensuring secure data transfer between the client and the server.
+
+## Contributing
+
+Contributions are welcome! If you have suggestions for improvements or new features, please open an issue or submit a pull request.
+
+## License
+
+This project is licensed under the MIT License. See the LICENSE file for more details.
+
+
    
